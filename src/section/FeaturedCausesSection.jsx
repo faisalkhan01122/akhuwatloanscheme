@@ -1,361 +1,235 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { useState } from "react"
 import {
-  FaHandsHelping,
-  FaGraduationCap,
+  FaHandHoldingUsd,
+  FaBusinessTime,
   FaHome,
+  FaGraduationCap,
+  FaBriefcaseMedical,
+  FaHandshake,
   FaMosque,
-  FaHandHoldingHeart,
-  FaUsers,
   FaArrowRight,
-  FaDonate,
-  FaStar,
-  FaLeaf,
-  FaBriefcaseMedical
+  FaPhone
 } from "react-icons/fa"
-import { FaBookQuran } from "react-icons/fa6";
-
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 
-const causes = [
+const loanPrograms = [
   {
     id: 1,
-    title: "Qarz-e-Hasna Microfinance",
-    category: "Islamic Finance",
-    description: "Our interest-free loan program based on the Islamic principle of Qarz-e-Hasna (benevolent loan) has transformed over 5 million lives. Support our mission to eradicate riba (interest) from financial systems while alleviating poverty.",
-    image: "https://images.unsplash.com/photo-1601599561213-832382fd07ba?w=800&h=600&fit=crop",
-    icon: <FaHandsHelping />,
-    color: "from-green-600 to-emerald-800",
-    raised: "PKR 250 Billion",
-    goal: "PKR 500 Billion",
-    progress: 50,
-    donors: "1.2 Million",
-    impact: "5.5 Million families empowered",
+    title: "Family Enterprise Loan",
+    category: "Business",
+    description: "Interest-free capital for small businesses and family enterprises following Islamic principles of Qard-e-Hasna (benevolent loan).",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf",
+    icon: <FaBusinessTime />,
+    color: "from-emerald-600 to-teal-600",
+    amount: "Up to ₨500,000",
+    term: "3-5 Years",
+    beneficiaries: "250,000+ businesses funded",
     islamicPrinciple: "Based on Quran 2:245 - 'Who is it that would loan Allah a goodly loan...'"
   },
   {
     id: 2,
-    title: "Mushahida Islamic Schools",
-    category: "Islamic Education",
-    description: "Establishing quality Islamic education with modern curriculum for underprivileged children. Our schools combine Quranic teachings with STEM education to create balanced Muslim citizens.",
-    image: "https://images.unsplash.com/photo-1588072432836-e10032774350?w=800&h=600&fit=crop",
-    icon: <FaBookQuran />,
-    color: "from-blue-600 to-indigo-800",
-    raised: "PKR 1.2 Billion",
-    goal: "PKR 3 Billion",
-    progress: 40,
-    donors: "85,000",
-    impact: "150,000 students educated",
+    title: "Education Financing",
+    category: "Education",
+    description: "Shariah-compliant funding for school fees, university tuition and vocational training without interest charges.",
+    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1",
+    icon: <FaGraduationCap />,
+    color: "from-blue-600 to-indigo-600",
+    amount: "Up to ₨200,000",
+    term: "Flexible repayment",
+    beneficiaries: "180,000 students supported",
     islamicPrinciple: "Seeking knowledge is obligatory for every Muslim (Hadith)"
   },
   {
     id: 3,
-    title: "Islamic Health Centers",
-    category: "Healthcare",
-    description: "Providing affordable healthcare with Islamic medical ethics. Our centers offer halal treatment options and spiritual counseling alongside medical care.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
+    title: "Healthcare Support",
+    category: "Medical",
+    description: "Emergency medical financing following Islamic principles to ensure access to quality healthcare for all.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
     icon: <FaBriefcaseMedical />,
-    color: "from-red-600 to-rose-800",
-    raised: "PKR 850 Million",
-    goal: "PKR 2 Billion",
-    progress: 42,
-    donors: "62,000",
-    impact: "2.3 Million patients treated",
+    color: "from-rose-600 to-pink-600",
+    amount: "Up to ₨300,000",
+    term: "1-3 Years",
+    beneficiaries: "1.2 million patients helped",
     islamicPrinciple: "The best charity is to provide water (Hadith)"
   },
   {
     id: 4,
-    title: "Masjid-ul-Mustafa",
-    category: "Mosque Construction",
-    description: "Building community mosques that serve as centers for worship, education and social services. Each mosque becomes a hub for Islamic revival in its community.",
-    image: "https://royalorchard.pk/wp-content/uploads/2022/12/IMG_5254-scaled.jpg",
-    icon: <FaMosque />,
-    color: "from-yellow-600 to-amber-800",
-    raised: "PKR 650 Million",
-    goal: "PKR 1.5 Billion",
-    progress: 43,
-    donors: "45,000",
-    impact: "250 mosques constructed",
-    islamicPrinciple: "Whoever builds a mosque for Allah, Allah will build for him a house in Paradise (Hadith)"
+    title: "Housing Assistance",
+    category: "Housing",
+    description: "Islamic home financing solution for construction, renovation and purchase without interest charges.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa",
+    icon: <FaHome />,
+    color: "from-amber-600 to-orange-600",
+    amount: "Up to ₨1,000,000",
+    term: "5-7 Years",
+    beneficiaries: "50,000 homes funded",
+    islamicPrinciple: "Whoever builds a house seeking Allah's pleasure, Allah will build for him a house in Paradise (Hadith)"
   },
   {
     id: 5,
-    title: "Islamic Sustainable Farming",
-    category: "Agriculture",
-    description: "Promoting Zabiha-compliant halal farming practices that follow Islamic environmental ethics. Supporting Muslim farmers with interest-free agricultural loans.",
-    image: "https://www.greenprophet.com/wp-content/uploads/islamic-era-farming-scaled.jpg",
-    icon: <FaLeaf />,
-    color: "from-lime-600 to-green-800",
-    raised: "PKR 320 Million",
-    goal: "PKR 800 Million",
-    progress: 40,
-    donors: "28,000",
-    impact: "12,500 farming families supported",
-    islamicPrinciple: "The earth is green and beautiful, and Allah has appointed you as stewards over it (Hadith)"
+    title: "Marriage Loan",
+    category: "Social",
+    description: "Dignified wedding financing that follows Islamic values, helping families celebrate without financial burden.",
+    image: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e",
+    icon: <FaHandshake />,
+    color: "from-purple-600 to-violet-600",
+    amount: "Up to ₨150,000",
+    term: "2-3 Years",
+    beneficiaries: "75,000 marriages supported",
+    islamicPrinciple: "Marriage is my Sunnah, whoever turns away from my Sunnah is not from me (Hadith)"
   },
   {
     id: 6,
-    title: "Orphan Care Program",
-    category: "Social Welfare",
-    description: "Comprehensive care for orphans following the Sunnah of the Prophet (PBUH). Providing housing, education, and emotional support while preserving their Islamic identity.",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop",
-    icon: <FaHandHoldingHeart />,
-    color: "from-purple-600 to-violet-800",
-    raised: "PKR 750 Million",
-    goal: "PKR 1.2 Billion",
-    progress: 62,
-    donors: "95,000",
-    impact: "35,000 orphans sponsored",
-    islamicPrinciple: "I and the caretaker of the orphan will be like this in Paradise (showing two fingers) (Hadith)"
+    title: "Mosque Construction Loan",
+    category: "Community",
+    description: "Community funding for building and maintaining masajid across Pakistan with transparent financing.",
+    image: "https://images.unsplash.com/photo-1561601501-6986b3d0d72a",
+    icon: <FaMosque />,
+    color: "from-cyan-600 to-sky-600",
+    amount: "Up to ₨2,000,000",
+    term: "7-10 Years",
+    beneficiaries: "1,500 mosques built",
+    islamicPrinciple: "Whoever builds a mosque for Allah, Allah will build for him a house in Paradise (Hadith)"
   }
 ]
 
 const categories = [
-  { id: "all", label: "All Causes", icon: FaStar },
-  { id: "Islamic Finance", label: "Qarz-e-Hasna", icon: FaHandsHelping },
-  { id: "Islamic Education", label: "Education", icon: FaBookQuran },
-  { id: "Healthcare", label: "Medical", icon: FaBriefcaseMedical },
-  { id: "Mosque Construction", label: "Mosques", icon: FaMosque },
-  { id: "Social Welfare", label: "Welfare", icon: FaHandHoldingHeart },
+  { id: "all", label: "All Programs", icon: FaHandHoldingUsd },
+  { id: "Business", label: "Business", icon: FaBusinessTime },
+  { id: "Education", label: "Education", icon: FaGraduationCap },
+  { id: "Medical", label: "Medical", icon: FaBriefcaseMedical },
+  { id: "Housing", label: "Housing", icon: FaHome },
+  { id: "Community", label: "Community", icon: FaMosque }
 ]
 
 const FeaturedCausesSection = () => {
   const [activeCategory, setActiveCategory] = useState("all")
-  const [hoveredCard, setHoveredCard] = useState(null)
-
-  const filteredCauses = activeCategory === "all" ? causes : causes.filter((cause) => cause.category === activeCategory)
+  const filteredPrograms = activeCategory === "all"
+    ? loanPrograms
+    : loanPrograms.filter(p => p.category === activeCategory)
 
   return (
-    <section className="py-24 bg-gradient-to-br from-amber-50 via-white to-emerald-50 relative overflow-hidden">
-      {/* Islamic Pattern Background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-emerald-200 rounded-full opacity-20 animate-float blur-3xl"></div>
-        <div className="absolute bottom-32 right-20 w-80 h-80 bg-blue-200 rounded-full opacity-20 animate-float-reverse blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-amber-200 rounded-full opacity-20 animate-pulse blur-2xl"></div>
-      </div>
+    <section className="py-20 bg-gradient-to-b from-white to-emerald-50 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center px-6 py-2 bg-emerald-100 rounded-full mb-6">
+            <span className="text-emerald-700 font-medium">Islamic Microfinance</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Akhuwat <span className="text-emerald-600">Loan Programs</span>
+          </h2>
+          <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+            Providing compassionate, interest-free financial solutions rooted in Islamic values since 2001
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-teal-500 mx-auto rounded-full"></div>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* Islamic Inspired Header */}
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
-            className="flex flex-col items-center justify-center gap-2 mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="text-emerald-800 text-3xl mb-2 font-arabic">بسم الله الرحمن الرحيم</div>
-            <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-emerald-600 rounded-full"></div>
-          </motion.div>
-
-          <motion.h2
-            className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 font-serif"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-amber-600">
-              Sadaqah Jariyah
-            </span>{" "}
-            Opportunities
-          </motion.h2>
-
-          <motion.p
-            className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            "The example of those who spend their wealth in the Way of Allah is like that of a grain that sprouts seven 
-            ears, in every ear a hundred grains..." (Quran 2:261)
-          </motion.p>
-        </motion.div>
-
-        {/* Category Filter with Islamic Style */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-3 mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          {categories.map((category, index) => (
-            <motion.button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center gap-3 px-5 py-3 rounded-lg font-medium transition-all duration-300 ${
-                activeCategory === category.id
-                  ? "bg-gradient-to-r from-emerald-700 to-amber-600 text-white shadow-lg"
-                  : "bg-white text-gray-600 hover:bg-amber-50 hover:text-emerald-700 border border-gray-200"
+        {/* Categories */}
+        <div className="flex flex-wrap justify-center gap-3 mb-16">
+          {categories.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => setActiveCategory(id)}
+              className={`flex items-center gap-2 px-5 py-3 rounded-lg font-medium transition-all duration-300 ${
+                activeCategory === id
+                  ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg"
+                  : "bg-white text-gray-600 hover:bg-emerald-50 hover:text-emerald-700 border border-gray-200"
               }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
             >
-              <category.icon className="w-5 h-5" />
-              {category.label}
-            </motion.button>
+              <Icon className="w-5 h-5" />
+              {label}
+            </button>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Causes Grid with Islamic Design */}
+        {/* Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {filteredCauses.map((cause, index) => (
+          {filteredPrograms.map((program, index) => (
             <motion.div
-              key={cause.id}
-              className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 relative"
+              key={program.id}
+              className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-emerald-200"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              onHoverStart={() => setHoveredCard(index)}
-              onHoverEnd={() => setHoveredCard(null)}
             >
-              {/* Islamic Decorative Element */}
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-500 to-emerald-600"></div>
-
-              {/* Image Container */}
-              <div className="relative overflow-hidden h-60">
-                <motion.img
-                  src={cause.image}
-                  alt={cause.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                  animate={hoveredCard === index ? { scale: 1.1 } : { scale: 1 }}
+              <div className={`w-full h-2 bg-gradient-to-r ${program.color}`}></div>
+              <div className="relative overflow-hidden h-48">
+                <img
+                  loading="lazy"
+                  src={`${program.image}?auto=format&fit=crop&w=600&q=60`}
+                  alt={program.title}
+                  className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
                 />
-
-                {/* Islamic Principle Badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-black/70 text-white text-sm p-3 rounded-lg">
-                  {cause.islamicPrinciple}
+                <div className="absolute bottom-4 left-4 right-4 bg-black/70 text-white text-xs p-2 rounded">
+                  {program.islamicPrinciple}
                 </div>
-
-                {/* Icon Overlay */}
-                <motion.div
-                  className={`absolute top-4 right-4 w-12 h-12 bg-gradient-to-r ${cause.color} rounded-lg flex items-center justify-center text-white text-xl transform translate-x-16 group-hover:translate-x-0 transition-transform duration-500 shadow-lg`}
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  {cause.icon}
-                </motion.div>
+                <div className={`absolute top-4 right-4 w-10 h-10 bg-gradient-to-r ${program.color} rounded-lg flex items-center justify-center text-white text-xl`}>
+                  {program.icon}
+                </div>
               </div>
-
-              {/* Content */}
               <div className="p-6">
-                <motion.h3
-                  className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                >
-                  {cause.title}
-                </motion.h3>
-
-                <p className="text-gray-600 mb-5 leading-relaxed">{cause.description}</p>
-
-                {/* Progress Section */}
-                <div className="mb-5">
-                  <div className="flex justify-between text-sm text-gray-600 mb-2">
-                    <span className="font-semibold">Raised: {cause.raised}</span>
-                    <span className="font-semibold">Goal: {cause.goal}</span>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
+                  {program.title}
+                </h3>
+                <p className="text-gray-600 mb-5 text-sm">{program.description}</p>
+                <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                  <div className="bg-emerald-50 rounded p-3">
+                    <div className="text-xs text-gray-500">Loan Amount</div>
+                    <div className="font-bold text-emerald-700">{program.amount}</div>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                    <motion.div
-                      className={`h-2 rounded-full bg-gradient-to-r ${cause.color}`}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${cause.progress}%` }}
-                      transition={{ duration: 1.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    ></motion.div>
-                  </div>
-                  <div className="text-right mt-1 text-xs font-medium text-gray-500">{cause.progress}% of target</div>
-                </div>
-
-                {/* Impact Stats */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  <div className="text-center bg-amber-50 rounded-lg p-3">
-                    <div className="text-lg font-bold text-emerald-700">{cause.donors}</div>
-                    <div className="text-xs text-gray-600">Generous Donors</div>
-                  </div>
-                  <div className="text-center bg-emerald-50 rounded-lg p-3">
-                    <div className="text-sm font-bold text-gray-800">{cause.impact}</div>
+                  <div className="bg-amber-50 rounded p-3">
+                    <div className="text-xs text-gray-500">Term</div>
+                    <div className="font-bold text-amber-700">{program.term}</div>
                   </div>
                 </div>
-
-                {/* Donate Button */}
-                <motion.button
-                  className={`w-full py-3 rounded-lg text-white font-semibold bg-gradient-to-r ${cause.color} hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2 group/btn`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <div className="mb-4 text-xs text-gray-500">
+                  <strong className="text-sm text-gray-700">Impact:</strong> {program.beneficiaries}
+                </div>
+                <Link
+                  to="/apply"
+                  className={`block w-full text-center py-3 rounded-lg text-white font-semibold bg-gradient-to-r ${program.color} hover:opacity-90 transition`}
                 >
-                  <FaHandHoldingHeart className="w-4 h-4" />
-                  <Link to={'/contact-us'}>Apply Now</Link>
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-                  >
-                    <FaArrowRight className="w-3 h-3" />
-                  </motion.div>
-                </motion.button>
+                  Apply Now <FaArrowRight className="inline ml-2" />
+                </Link>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Islamic Call to Action */}
+        {/* CTA */}
         <motion.div
-          className="text-center"
+          className="bg-gradient-to-r from-emerald-700 to-teal-600 rounded-2xl p-10 text-white text-center shadow-lg"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-emerald-700 to-amber-600 rounded-xl p-10 text-white relative overflow-hidden border-2 border-white shadow-2xl">
-            {/* Islamic Pattern */}
-            <div className="absolute inset-0 opacity-10 bg-[url('https://static.vecteezy.com/system/resources/previews/014/664/051/non_2x/islamic-ornament-persian-motiff-3d-ramadan-islamic-round-pattern-elements-geometric-circular-ornamental-arabic-symbol-gold-background-vector.jpg')]"></div>
-
-            <div className="relative z-10">
-              <h3 className="text-3xl md:text-5xl font-bold mb-6 font-serif">"The believer's shade on the Day of Judgment will be his charity." (Hadith)</h3>
-              
-              <div className="flex flex-col sm:flex-row gap-5 justify-center mt-10">
-                <motion.a
-                  href="https://wa.me/923354571620"
-                target="_blank"
-                rel="noopener noreferrer"
-                  className="bg-white text-emerald-700 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center gap-3"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaDonate />
-                 Apply Now
-                </motion.a>
-
-                <motion.a
-                  href="/about"
-                  className="bg-white/10 backdrop-blur-sm border border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaStar />
-                  Explore Sadaqah Projects
-                </motion.a>
-              </div>
-
-              <div className="mt-10 text-emerald-100 text-sm">
-                <p>"Those who spend their wealth in the way of Allah and do not follow up their spending 
-                by stressing their benevolence and causing hurt, will find their reward secure with their Lord..." (Quran 2:262)</p>
-              </div>
-            </div>
+          <h3 className="text-2xl md:text-4xl font-bold mb-4">Ready to Apply for an Interest-Free Loan?</h3>
+          <p className="text-lg text-emerald-100 mb-6 max-w-2xl mx-auto">
+            Join over 4.8 million Pakistanis who have transformed their lives through Akhuwat's ethical financing model.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="/apply"
+              className="bg-white text-emerald-700 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition"
+            >
+              Apply Online
+            </a>
+            <a
+              href="tel:+923354571620"
+              className="bg-white/10 border border-white text-white px-6 py-3 rounded-lg font-bold hover:bg-white/20 transition"
+            >
+              <FaPhone className="inline mr-2" /> Call Our Helpline
+            </a>
           </div>
+          <p className="mt-6 text-sm text-emerald-100">
+            "Those who spend their wealth in the way of Allah... will find their reward secure with their Lord." (Quran 2:262)
+          </p>
         </motion.div>
       </div>
     </section>

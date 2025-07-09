@@ -9,73 +9,126 @@ import {
   FaHospital,
   FaChevronLeft,
   FaChevronRight,
+  FaHandHoldingUsd,
+  FaShieldAlt,
+  FaUsers,
+  FaQuran,
+  FaHome 
 } from "react-icons/fa"
-import { FaBookQuran } from "react-icons/fa6";
+
+import {  FaHandsHoldingCircle } from "react-icons/fa6";
 
 const partners = [
   {
     id: 1,
-    name: "ISNA",
-    fullName: "Islamic Society of North America",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSu87jHTPeb7IM5R7FU5L0P4N1AaYCOWAoyg&s",
-    description: "Promoting Islamic values and supporting Qard-e-Hasna initiatives across North America",
-    islamicPrinciple: "Cooperate in righteousness and piety"
+    name: "State Bank of Pakistan",
+    fullName: "Islamic Banking Department",
+    logo: "https://www.sbp.org.pk/images/logo.png",
+    description: "Regulatory partner ensuring Sharia compliance in Akhuwat's microfinance operations",
+    islamicPrinciple: "Allah permits trade and prohibits usury (Quran 2:275)",
+    role: "Regulatory Oversight"
   },
   {
     id: 2,
-    name: "IIFA",
-    fullName: "International Islamic Finance Association",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsrnRUCPSSdaY2sD3FdPdwaN83GeKLQ7QF3A&s",
-    description: "Advancing Shariah-compliant microfinance solutions globally",
-    islamicPrinciple: "Prohibiting Riba (interest) in all transactions"
+    name: "Al Baraka Bank",
+    fullName: "Al Baraka Islamic Bank",
+    logo: "https://www.albaraka.com.pk/wp-content/uploads/2020/04/logo.png",
+    description: "Financial partner for Akhuwat's Qard-e-Hasna liquidity management",
+    islamicPrinciple: "Cooperate in righteousness and piety",
+    role: "Banking Partner"
   },
   {
     id: 3,
-    name: "Al-Khair Foundation",
-    fullName: "Al-Khair Islamic Foundation",
-    logo: "https://alkhair.org/wp-content/uploads/2017/02/AKF.jpg",
-    description: "Implementing Islamic relief and development programs worldwide",
-    islamicPrinciple: "Sadaqah that endures benefits forever"
+    name: "Islamic Relief",
+    fullName: "Islamic Relief Pakistan",
+    logo: "https://www.islamic-relief.org/wp-content/uploads/2020/04/IRP-Logo-1.png",
+    description: "Collaborating on Zakat distribution and emergency loan programs",
+    islamicPrinciple: "Charity extinguishes sins as water extinguishes fire",
+    role: "Zakat Partner"
   },
   {
     id: 4,
-    name: "ICNA Relief",
-    fullName: "Islamic Circle of North America Relief",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRviwfPAYSEgiUub9gDxPwmFZoaz5fK23Vang&s",
-    description: "Providing Islamic social services and interest-free loans",
-    islamicPrinciple: "Charity extinguishes sins as water extinguishes fire"
+    name: "Akhuwat University",
+    fullName: "Akhuwat University Kasur",
+    logo: "https://akhuwat.org.pk/wp-content/uploads/2021/06/akhuwat-university-logo.png",
+    description: "Research partner for Islamic microfinance impact studies",
+    islamicPrinciple: "Seeking knowledge is obligatory upon every Muslim",
+    role: "Education Partner"
   },
   {
     id: 5,
-    name: "Islamic Development Bank",
-    fullName: "IsDB Group",
-    logo: "https://cdn.britannica.com/11/142711-004-9E7D4F73/headquarters-Islamic-Development-Bank-Jiddah-Saudi-Arabia.jpg",
-    description: "Funding development projects according to Islamic principles",
-    islamicPrinciple: "Economic empowerment of the Ummah"
+    name: "Pakistan Poverty Alleviation Fund",
+    fullName: "PPAF",
+    logo: "https://www.ppaf.org.pk/wp-content/uploads/2021/06/PPAF-Logo.png",
+    description: "Co-financing partner for large-scale poverty alleviation projects",
+    islamicPrinciple: "The upper hand (giving) is better than the lower hand (receiving)",
+    role: "Funding Partner"
   },
   {
     id: 6,
-    name: "Muslim Hands",
-    fullName: "Muslim Hands International",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPdlenFMHxcjW4je3ypZzWsBpIbWUIr2znfg&s",
-    description: "Implementing Zakat-compliant poverty alleviation programs",
-    islamicPrinciple: "The upper hand (giving) is better than the lower hand (receiving)"
+    name: "Karandaaz Pakistan",
+    fullName: "Karandaaz Financial Inclusion",
+    logo: "https://karandaaz.com.pk/wp-content/uploads/2021/06/logo.png",
+    description: "Digital financial inclusion initiatives for Akhuwat borrowers",
+    islamicPrinciple: "Economic empowerment of the Ummah",
+    role: "Technology Partner"
   },
   {
     id: 7,
-    name: "Awqaf SA",
-    fullName: "Awqaf Foundation of South Africa",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWG4XpRDww2aZlJby9R-fs88zBu7A4czHbTQ&s",
-    description: "Managing Islamic endowments for sustainable development",
-    islamicPrinciple: "Perpetual charity (Sadaqah Jariyah)"
+    name: "JDC Foundation",
+    fullName: "Jafriya Disaster Management Cell",
+    logo: "https://jdc.org.pk/wp-content/uploads/2021/06/JDC-Logo.png",
+    description: "Partner for medical emergency loan programs",
+    islamicPrinciple: "Whoever relieves a believer's distress, Allah will relieve his distress",
+    role: "Health Partner"
   },
   {
     id: 8,
-    name: "IFE",
-    fullName: "Islamic Foundation for Education",
-    logo: "https://abi.edu.pk/wp-content/uploads/2024/10/blog.jpeg",
-    description: "Providing Islamic education with modern knowledge",
-    islamicPrinciple: "Seeking knowledge is obligatory upon every Muslim"
+    name: "Pakistan Islamic Banking Council",
+    fullName: "PIBC",
+    logo: "https://www.sbp.org.pk/ibd/PIBC_Logo.jpg",
+    description: "Sharia advisory partner for Akhuwat's loan products",
+    islamicPrinciple: "Allah has permitted trade and forbidden usury",
+    role: "Sharia Advisor"
+  }
+]
+
+const loanPrograms = [
+  {
+    icon: FaHandHoldingUsd,
+    title: "Family Enterprise Loans",
+    amount: "Up to ₨300,000",
+    terms: "1-3 years repayment",
+    islamicBasis: "Qard-e-Hasna (Benevolent Loan)",
+    color: "text-blue-600",
+    bg: "bg-blue-100"
+  },
+  {
+    icon: FaHome,
+    title: "Islamic Housing Finance",
+    amount: "Up to ₨3,000,000",
+    terms: "5-15 years repayment",
+    islamicBasis: "Diminishing Musharakah",
+    color: "text-green-600",
+    bg: "bg-green-100"
+  },
+  {
+    icon: FaUniversity,
+    title: "Education Loans",
+    amount: "Up to ₨500,000",
+    terms: "Repayment after graduation",
+    islamicBasis: "Tawliyah (Trust-based Financing)",
+    color: "text-purple-600",
+    bg: "bg-purple-100"
+  },
+  {
+    icon: FaHospital,
+    title: "Medical Emergency Loans",
+    amount: "Up to ₨200,000",
+    terms: "Flexible repayment",
+    islamicBasis: "Urf (Customary Practice)",
+    color: "text-red-600",
+    bg: "bg-red-100"
   }
 ]
 
@@ -103,14 +156,14 @@ const CollaboratingPartnersSection = () => {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-br from-amber-50 via-white to-emerald-50 relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
       {/* Islamic Pattern Background */}
-      <div className="absolute inset-0 opacity-5 bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYCfEhf1kIY9CaPG2Woik1S5fVMi1GFDuIkg&s')]"></div>
+      <div className="absolute inset-0 opacity-5 [background-image:url('https://www.transparenttextures.com/patterns/arabesque.png')]"></div>
       
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* Islamic Inspired Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -123,35 +176,77 @@ const CollaboratingPartnersSection = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="text-emerald-800 text-3xl mb-2 font-arabic">بسم الله الرحمن الرحيم</div>
-            <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-emerald-600 rounded-full"></div>
+            <div className="text-blue-800 text-2xl mb-2 font-arabic">بسم الله الرحمن الرحيم</div>
+            <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-full"></div>
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 font-serif"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-amber-600">Islamic Partners</span>
+            Akhuwat <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">Strategic Partnerships</span>
           </motion.h2>
 
           <motion.p
-            className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             viewport={{ once: true }}
           >
-            "Cooperate in righteousness and piety, but do not cooperate in sin and aggression" (Quran 5:2). 
-            Meet the organizations helping us implement Quranic economic principles worldwide.
+            "Hold firmly to the rope of Allah all together and do not become divided" (Quran 3:103). 
+            Our partners help us deliver Sharia-compliant microfinance across Pakistan.
           </motion.p>
         </motion.div>
 
-        {/* Partners Carousel with Islamic Design */}
+        {/* Loan Programs Section */}
+        <motion.div
+          className="bg-white rounded-2xl shadow-xl overflow-hidden mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="p-8 md:p-10 bg-gradient-to-br from-blue-50 to-green-50">
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Our Sharia-Compliant Loan Programs</h3>
+            <p className="text-gray-600 mb-8">Developed with our Islamic finance partners</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {loanPrograms.map((program, index) => (
+                <motion.div
+                  key={index}
+                  className={`bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all ${program.bg}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                >
+                  <div className={`w-12 h-12 ${program.bg} rounded-lg flex items-center justify-center mb-4`}>
+                    <program.icon className={`text-xl ${program.color}`} />
+                  </div>
+                  <h4 className={`text-lg font-bold ${program.color} mb-2`}>{program.title}</h4>
+                  <p className="text-gray-600 text-sm mb-1">
+                    <span className="font-medium">Amount:</span> {program.amount}
+                  </p>
+                  <p className="text-gray-600 text-sm mb-2">
+                    <span className="font-medium">Terms:</span> {program.terms}
+                  </p>
+                  <p className="text-blue-600 text-xs font-medium">
+                    {program.islamicBasis}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Partners Carousel */}
         <div
-          className="relative mb-20"
+          className="relative mb-16"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
@@ -171,15 +266,13 @@ const CollaboratingPartnersSection = () => {
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5 }}
-                          className="relative group bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 text-center overflow-hidden"
+                          className="relative group bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 text-center overflow-hidden"
                         >
                           {/* Islamic Decorative Element */}
-                          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-emerald-600"></div>
-                          
-                          <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-green-500"></div>
                           
                           <div className="relative z-10">
-                            <div className="flex justify-center items-center h-24 mb-4">
+                            <div className="flex justify-center items-center h-20 mb-4">
                               <img
                                 src={partner.logo}
                                 alt={partner.name}
@@ -187,20 +280,20 @@ const CollaboratingPartnersSection = () => {
                               />
                             </div>
                             
-                            <h3 className="text-xl font-bold text-gray-800 mb-1 group-hover:text-emerald-700 transition-colors duration-300">
+                            <h3 className="text-lg font-bold text-gray-800 mb-1 group-hover:text-blue-600 transition-colors duration-300">
                               {partner.name}
                             </h3>
                             
-                            <div className="bg-amber-50 border-l-4 border-amber-500 p-2 mb-3 rounded-r text-sm italic">
+                            <div className="text-xs text-blue-600 font-medium mb-2">
+                              {partner.role}
+                            </div>
+                            
+                            <div className="bg-blue-50 border-l-4 border-blue-500 p-2 mb-3 rounded-r text-sm italic">
                               "{partner.islamicPrinciple}"
                             </div>
                             
-                            <p className="text-sm text-gray-600 mb-2 min-h-[48px]">
+                            <p className="text-sm text-gray-600 mb-2">
                               {partner.description}
-                            </p>
-                            
-                            <p className="text-xs text-emerald-700 font-medium">
-                              {partner.fullName}
                             </p>
                           </div>
                         </motion.div>
@@ -214,13 +307,13 @@ const CollaboratingPartnersSection = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border border-gray-200 rounded-full shadow hover:shadow-lg flex items-center justify-center text-gray-600 hover:text-emerald-600"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border border-gray-200 rounded-full shadow hover:shadow-lg flex items-center justify-center text-gray-600 hover:text-blue-600"
           >
             <FaChevronLeft />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border border-gray-200 rounded-full shadow hover:shadow-lg flex items-center justify-center text-gray-600 hover:text-emerald-600"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border border-gray-200 rounded-full shadow hover:shadow-lg flex items-center justify-center text-gray-600 hover:text-blue-600"
           >
             <FaChevronRight />
           </button>
@@ -232,94 +325,212 @@ const CollaboratingPartnersSection = () => {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide ? "bg-emerald-600 w-8" : "bg-gray-300 hover:bg-gray-400"
+                  index === currentSlide ? "bg-blue-600 w-8" : "bg-gray-300 hover:bg-gray-400"
                 }`}
               />
             ))}
           </div>
         </div>
 
-        {/* Islamic Call to Action */}
+        {/* Partnership Benefits Section */}
         <motion.div
-          className="bg-gradient-to-r from-emerald-700 to-amber-600 rounded-xl p-10 text-white relative overflow-hidden border-2 border-white shadow-2xl"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          className="bg-white rounded-2xl shadow-xl overflow-hidden mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {/* Islamic Pattern */}
-          <div className="absolute inset-0 opacity-10 bg-[url('https://static.vecteezy.com/system/resources/previews/014/664/051/non_2x/islamic-ornament-persian-motiff-3d-ramadan-islamic-round-pattern-elements-geometric-circular-ornamental-arabic-symbol-gold-background-vector.jpg')]"></div>
-
-          <div className="relative z-10 text-center">
-            <motion.div
-              className="flex items-center justify-center gap-3 mb-6"
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <FaHandshake className="text-3xl text-emerald-200" />
-              <span className="text-emerald-200 font-bold text-xl">Become an Islamic Partner</span>
-            </motion.div>
-
-            <motion.h3
-              className="text-3xl md:text-4xl font-bold mb-6 font-serif"
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              "Hold firmly to the rope of Allah all together and do not become divided" (Quran 3:103)
-            </motion.h3>
-
-            <motion.p
-              className="text-emerald-100 mb-8 text-lg leading-relaxed max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              Join our network of Islamic organizations working to establish Quranic economic justice through interest-free microfinance, Zakat distribution, and Sadaqah Jariyah projects.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-wrap justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <motion.a
-                href="/contact-us"
-                className="bg-white text-emerald-700 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center gap-3"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaMosque />
-                For Islamic Organizations
-              </motion.a>
-
-              <motion.a
-                href="/contact-us"
-                className="bg-white/10 backdrop-blur-sm border border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaBookQuran />
-                For Zakat Institutions
-              </motion.a>
-
-              <motion.a
-                href="/contact-us"
-                className="bg-white/10 backdrop-blur-sm border border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaUniversity />
-                For Islamic Schools
-              </motion.a>
-            </motion.div>
+          <div className="grid md:grid-cols-2">
+            <div className="p-8 md:p-10 bg-gradient-to-br from-blue-600 to-green-600 text-white">
+              <h3 className="text-2xl font-bold mb-4">Why Partner With Akhuwat?</h3>
+              <p className="mb-6 opacity-90">
+                Join Pakistan's largest Islamic microfinance network with over 5 million beneficiaries.
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                      <FaHandsHoldingCircle className="text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Sharia Advisory</h4>
+                    <p className="text-sm opacity-80">
+                      Access our team of Islamic scholars for product development
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                      <FaUsers className="text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Community Reach</h4>
+                    <p className="text-sm opacity-80">
+                      Leverage our network of 1,200+ mosque-based branches
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                      <FaShieldAlt className="text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Impact Measurement</h4>
+                    <p className="text-sm opacity-80">
+                      Joint monitoring of poverty alleviation outcomes
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="p-8 md:p-10 bg-white">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Partnership Process</h3>
+              <p className="text-gray-600 mb-6">
+                Simple steps to collaborate with Akhuwat's Islamic microfinance programs
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <span className="text-blue-600 font-bold">1</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Initial Meeting</h4>
+                    <p className="text-gray-600 text-sm">
+                      Discuss partnership opportunities and alignment
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                      <span className="text-green-600 font-bold">2</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Sharia Review</h4>
+                    <p className="text-gray-600 text-sm">
+                      Ensure compliance with Islamic finance principles
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
+                      <span className="text-amber-600 font-bold">3</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Agreement Signing</h4>
+                    <p className="text-gray-600 text-sm">
+                      Formalize the partnership with Islamic contract
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <span className="text-purple-600 font-bold">4</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Implementation</h4>
+                    <p className="text-gray-600 text-sm">
+                      Joint program rollout and monitoring
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </motion.div>
+
+        {/* Call to Action */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="mb-8"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Ready to <span className="text-blue-600">Partner With Akhuwat</span>?
+            </h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Join us in creating Pakistan's largest interest-free microfinance ecosystem.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <motion.a
+              href="/partnerships"
+              className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white font-bold px-6 py-3 rounded-lg shadow-md transition-all duration-300 flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaHandshake className="text-xl" />
+              Explore Partnerships
+            </motion.a>
+
+            <motion.a
+              href="tel:+923281969250"
+              className="bg-white border-2 border-gray-200 hover:border-blue-500 text-gray-700 hover:text-blue-600 font-bold px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaQuran  />
+              Sharia Advisory
+            </motion.a>
+          </motion.div>
+
+          {/* Trust Indicators */}
+          <motion.div
+            className="mt-12 pt-8 border-t border-gray-200 flex flex-wrap items-center justify-center gap-6 text-gray-500"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-2">
+              <FaMosque className="text-blue-500" />
+              <span className="text-sm">1,200+ Mosque Branches</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaHandHoldingUsd className="text-green-500" />
+              <span className="text-sm">₨90 Billion Disbursed</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaShieldAlt className="text-amber-500" />
+              <span className="text-sm">100% Sharia Compliant</span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
