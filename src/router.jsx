@@ -1,35 +1,32 @@
-import { createBrowserRouter } from "react-router-dom"
-import RootLayout from "./layout/RootLayout"
-import HomePage from "./pages/HomePage"
-import AboutUsPage from "./pages/AboutUsPage"
-import ServicesPage from "./pages/ServicesPage"
-import ImpactPage from "./pages/ImpactPage"
-import LoanServicesPage from "./pages/LoanServicesPage"
-import MicrofinanceLoansPage from "./pages/MicrofinanceLoansPage"
-import PersonalLoansPage from "./pages/PersonalLoansPage"
-import HealthcareLoansPage from "./pages/HealthcareLoansPage"
-import EducationLoansPage from "./pages/EducationLoansPage"
+import { createBrowserRouter } from "react-router-dom";
+import RootLayout from "./layout/RootLayout";
+import HomePage from "./pages/HomePage";
 
-import EmergencyLoansPage from "./pages/EmergencyLoansPage"
-import ContactUsPage from "./pages/ContactUsPage"
-import TermsConditionsPage from "./pages/TermsConditionsPage"
-import DisclaimerPage from "./pages/DisclaimerPage"
-import PrivacyPolicyPage from "./pages/PrivacyPolicyPage"
-import HousingLoansPage from "./pages/HousingLoansPage"
-import BusinessLoansPage from "./pages/BusinessLoansPage"
-import HelpCenterPage from "./pages/HelpCenterPage"
-// import BusinessLoansPage from "./pages/BusinessLoansPage"
-// import MicrofinanceLoansPage from "./pages/MicrofinanceLoansPage"
-// import PersonalLoansPage from "./pages/PersonalLoansPage"
-// import HealthcareLoansPage from "./pages/HealthcareLoansPage"
-// import EducationLoansPage from "./pages/EducationLoansPage"
-// import HousingLoansPage from "./pages/HousingLoansPage"
-// import EmergencyLoansPage from "./pages/EmergencyLoansPage"
-// import ContactUsPage from "./pages/ContactUsPage"
-// import TermsConditionsPage from "./pages/TermsConditionsPage"
-// import DisclaimerPage from "./pages/DisclaimerPage"
-// import PrivacyPolicyPage from "./pages/PrivacyPolicyPage"
-// import HelpCenterPage from "./pages/HelpCenterPage"
+import ServicesPage from "./pages/ServicesPage";
+import ImpactPage from "./pages/ImpactPage";
+import LoanServicesPage from "./pages/LoanServicesPage";
+import MicrofinanceLoansPage from "./pages/MicrofinanceLoansPage";
+import PersonalLoansPage from "./pages/PersonalLoansPage";
+import HealthcareLoansPage from "./pages/HealthcareLoansPage";
+import EducationLoansPage from "./pages/EducationLoansPage";
+
+import EmergencyLoansPage from "./pages/EmergencyLoansPage";
+import ContactUsPage from "./pages/ContactUsPage";
+import TermsConditionsPage from "./pages/TermsConditionsPage";
+import DisclaimerPage from "./pages/DisclaimerPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import HousingLoansPage from "./pages/HousingLoansPage";
+import BusinessLoansPage from "./pages/BusinessLoansPage";
+import HelpCenterPage from "./pages/HelpCenterPage";
+import AkhuwatLoansPage from "./pages/AkhuwatLoansPage";
+import SuccessStoriesPage from "./pages/SuccessStoriesPage";
+import OurValuesPage from "./pages/OurValuesPage";
+import LeadershipPage from "./pages/LeadershipPage";
+import ReportsPage from "./pages/ReportsPage";
+import ReachPage from "./pages/ReachPage";
+import FamilyEnterpriseLoansPage from "./pages/FamilyEnterpriseLoansPage";
+import HealthLoansPage from "./pages/HealthLoansPage";
+import MarriageLoansPage from "./pages/MarriageLoansPage";
 
 const router = createBrowserRouter([
   {
@@ -42,8 +39,26 @@ const router = createBrowserRouter([
       },
       {
         path: "about",
-        element: <AboutUsPage />,
+        element: <AkhuwatLoansPage />,
       },
+      {
+        path: "about/story",
+        element: <SuccessStoriesPage />,
+      },
+      {
+        path: "impact/stories",
+        element: <SuccessStoriesPage />,
+      },
+
+      {
+        path: "about/values",
+        element: <OurValuesPage />,
+      },
+      {
+        path: "about/leadership",
+        element: <LeadershipPage />,
+      },
+
       {
         path: "services",
         element: <ServicesPage />,
@@ -53,15 +68,36 @@ const router = createBrowserRouter([
         element: <ImpactPage />,
       },
       {
+        path: "impact/reports",
+        element: <ReportsPage />,
+      },
+      {
+        path: "impact/reach",
+        element: <ReachPage />,
+      },
+
+      {
         path: "loans",
         element: <LoanServicesPage />,
+      },
+      {
+        path: "loans/family-enterprise",
+        element: <FamilyEnterpriseLoansPage />,
+      },
+      {
+        path: "loans/health",
+        element: <HealthLoansPage/>,
+      },
+       {
+        path: "loans/marriage",
+        element: <MarriageLoansPage/>,
       },
       {
         path: "loans/business",
         element: <BusinessLoansPage />,
       },
       {
-        path: "loans/microfinance",
+        path: "loans/agriculture",
         element: <MicrofinanceLoansPage />,
       },
       {
@@ -106,6 +142,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-])
+]);
 
-export default router
+export default router;

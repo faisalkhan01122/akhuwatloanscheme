@@ -144,8 +144,8 @@ const Navbar = () => {
         }
       ]
     },
-    { name: "Donate", path: "/donate", icon: FaHandsHelping },
-    { name: "Contact", path: "/contact", icon: FaPhone },
+    // { name: "Donate", path: "/donate", icon: FaHandsHelping },
+    { name: "Contact", path: "/contact-us", icon: FaPhone },
   ]
 
   const toggleMobileDropdown = (name) => {
@@ -246,7 +246,7 @@ const Navbar = () => {
               </div>
             ))}
             <Link
-              to="/apply"
+              to="/contact-us"
               className={`ml-4 px-6 py-3 rounded-lg font-medium text-sm transition-colors duration-200 ${
                 scrolled
                   ? "bg-emerald-600 text-white hover:bg-emerald-700"
@@ -350,7 +350,7 @@ const Navbar = () => {
                 </div>
               ))}
               <Link
-                to="/apply"
+                to="/contact-us"
                 onClick={() => setIsOpen(false)}
                 className="block w-full text-center px-4 py-3 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 mt-2"
               >

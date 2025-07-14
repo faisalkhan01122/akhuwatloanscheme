@@ -33,9 +33,9 @@ const Footer = () => {
       items: [
         { label: "Home", url: "/" },
         { label: "About Akhuwat", url: "/about" },
-        { label: "Our Branches", url: "/branches" },
-        { label: "Success Stories", url: "/success-stories" },
-        { label: "Contact Us", url: "/contact" },
+        { label: "Our Branches", url: "/impact" },
+        { label: "Success Stories", url: "/about/story" },
+        { label: "Contact Us", url: "/contact-us" },
       ],
     },
     {
@@ -46,18 +46,18 @@ const Footer = () => {
         { label: "Health Emergency Loan", url: "/loans/health", icon: <FaBriefcaseMedical className="inline mr-2" /> },
         { label: "Marriage Loan", url: "/loans/marriage", icon: <FaHeart className="inline mr-2" /> },
         { label: "Housing Loan", url: "/loans/housing", icon: <FaUniversity className="inline mr-2" /> },
-        { label: "Mosque Construction Loan", url: "/loans/mosque", icon: <FaMosque className="inline mr-2" /> },
+        // { label: "Mosque Construction Loan", url: "/loans/mosque", icon: <FaMosque className="inline mr-2" /> },
       ],
     },
-    {
-      title: "Get Involved",
-      items: [
-        { label: "Donate Now", url: "/donate" },
-        { label: "Volunteer With Us", url: "/volunteer" },
-        { label: "Career Opportunities", url: "/careers" },
-        { label: "Partner With Us", url: "/partnership" },
-      ],
-    },
+    // {
+    //   title: "Get Involved",
+    //   items: [
+    //     { label: "Donate Now", url: "/donate" },
+    //     { label: "Volunteer With Us", url: "/volunteer" },
+    //     { label: "Career Opportunities", url: "/careers" },
+    //     { label: "Partner With Us", url: "/partnership" },
+    //   ],
+    // },
   ]
 
   const socialIcons = [
